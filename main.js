@@ -1,12 +1,12 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, protocol } = require("electron")
+const { app, BrowserWindow, protocol, ipcMain } = require("electron")
 const path = require("path")
 
 function createWindow() {
 	// Create the browser window.
 	const mainWindow = new BrowserWindow({
 		width: 400,
-		height: 400,
+		height: 200,
 		vibrancy: "sidebar",
 		visualEffectState: "active",
 		titleBarStyle: "customButtonsOnHover",
@@ -56,3 +56,7 @@ app.on("window-all-closed", function () {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+ipcMain.on("image-added", (event, { width, height }) => {
+	let browserWindow = BrowserWindow.fromWebContents(event.sender)
+	browserWindow.setSize(width, height, true)
+})

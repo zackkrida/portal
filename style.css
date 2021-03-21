@@ -20,7 +20,13 @@
 }
 
 h1 {
-	font-size: 1rem;
+	font-size: 11px;
+	line-height: 1;
+	font-weight: normal;
+	align-self: flex-end;
+	margin-top: auto;
+	padding-right: 14px;
+	padding-bottom: 8px;
 }
 
 img {

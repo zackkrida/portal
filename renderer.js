@@ -1,10 +1,3 @@
-// This file is required by the index.html file and will
-// be executed in the renderer process for that window.
-// No Node.js APIs are available in this process because
-// `nodeIntegration` is turned off. Use `preload.js` to
-// selectively enable features needed in the rendering
-// process.
-
 document.addEventListener("drop", (event) => {
 	event.preventDefault()
 	event.stopPropagation()
@@ -15,6 +8,7 @@ document.addEventListener("drop", (event) => {
 	const img = document.createElement("img")
 	img.src = firstFile.path
 	document.querySelector("body").appendChild(img)
+	window.electron.imageAdded({ width: 400, height: 400 })
 })
 
 document.addEventListener("dragover", (e) => {
@@ -22,10 +16,10 @@ document.addEventListener("dragover", (e) => {
 	e.stopPropagation()
 })
 
-document.addEventListener("dragenter", (event) => {
-	console.log("File is in the Drop Space")
-})
+// document.addEventListener("dragenter", (event) => {
+// 	console.log("File is in the Drop Space")
+// })
 
-document.addEventListener("dragleave", (event) => {
-	console.log("File has left the Drop Space")
-})
+// document.addEventListener("dragleave", (event) => {
+// 	console.log("File has left the Drop Space")
+// })
