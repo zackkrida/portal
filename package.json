@@ -1,15 +1,25 @@
 {
-  "name": "portal",
-  "version": "1.0.0",
-  "description": "",
-  "main": "main.js",
-  "scripts": {
-    "start": "electron ."
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "electron": "^12.0.1"
-  }
+	"name": "portal",
+	"version": "0.1.0",
+	"description": "A simple app to view media in a borderless, frameless window.",
+	"main": "main.js",
+	"scripts": {
+		"start": "electron .",
+		"pack": "electron-builder --dir",
+		"dist": "electron-builder",
+		"postinstall": "electron-builder install-app-deps"
+	},
+	"keywords": [],
+	"build": {
+		"appId": "your.id",
+		"mac": {
+			"category": "your.app.category.type"
+		}
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"electron": "^12.0.1",
+		"electron-builder": "^22.10.5"
+	}
 }
